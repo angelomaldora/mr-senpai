@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "axios": "^1.7.2",
+    "express": "^4.19.2",
+    "fbkey": "^1.0.4",
+    "meta-horizon": "^0.0.1-security",
+    "nayan-media-downloader": "^2.3.7"
+  }
+}
