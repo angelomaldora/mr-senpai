@@ -6,7 +6,7 @@ const { twitterdown } = require('nayan-media-downloader');
 
 const app = express();
 const port = 8266;
-
+app.use(express.static('public'));
 app.get('/fb', async (req, res) => {
     const { link } = req.query;
 
