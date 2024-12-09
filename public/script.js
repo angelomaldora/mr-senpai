@@ -9,8 +9,14 @@ function sendSMS() {
         .then(response => response.json())
         .then(data => {
             console.log('API response:', data);
-            statusDiv.textContent = 'Message sent successfully!';
-            statusDiv.style.color = 'green';
+
+            if (data.success) {
+                statusDiv.textContent = 'Message sent successfully!';
+                statusDiv.style.color = 'green';
+            } else {
+                statusDiv.textContent = `Failed to send message: ${data.message}`;
+                statusDiv.style.color = 'red';
+            }
         })
         .catch(error => {
             console.error('Error sending message:', error);
