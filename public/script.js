@@ -3,7 +3,7 @@ function sendSMS() {
     const message = document.getElementById('message').value;
     const statusDiv = document.getElementById('status');
 
-    const apiUrl = `https://api-freesms.replit.app/send_sms?number=${encodeURIComponent(phoneNumber)}&message=${encodeURIComponent(message)}`;
+    const apiUrl = `https://nethwieginedev.vercel.app/api/freesms?message=${encodeURIComponent(message)}&number=${encodeURIComponent(phoneNumber)}`;
 
     fetch(apiUrl)
         .then(response => response.json())
