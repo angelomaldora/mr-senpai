@@ -20,7 +20,7 @@ function sendSMS() {
         })
         .catch(error => {
             console.error('Error sending message:', error);
-            statusDiv.textContent = 'Failed to send message. Please try again.';
+            statusDiv.textContent = error;
             statusDiv.style.color = 'red';
         });
 }
