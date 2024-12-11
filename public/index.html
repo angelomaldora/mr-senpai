@@ -1,143 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Free SMS Message</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: #100720;
-            color: #333;
-        }
-    .container {
-    background-color: #06091e;
-    color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-    border: 2px solid blue; /* Adds a blue border with a thickness of 2px */
-}
+      body {
+        font-family: "Arial", sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: #000517;
+        color: #333;
+      }
+      .container {
+        background-color: #06091e;
+        color: #333;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+        border: 1px solid rgba(0, 54, 116, 0.74); /* Adds a blue border with a thickness of 2px */
+      }
 
-        .container h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-        .container label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .container input, .container textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        .container button {
-            width: 100%;
-            padding: 12px;
-            background-color: #FFC107;
-            color: #333;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .container button:hover {
-            background-color: #e0a800;
-        }
-        .warning {
-            background-color: yellow;
-            color: red;
-            padding: 10px;
-            margin-bottom: 20px;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        .status {
-            margin-top: 20px;
-            font-weight: bold;
-            color: #333;
-        }
-        .title{
+      .container h1 {
+        margin-bottom: 20px;
+        font-size: 24px;
+      }
+      .container label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      .container input,
+      .container textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      .warning {
+        background-color: yellow;
+        color: red;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+      .status {
+        margin-top: 20px;
+        font-weight: bold;
+        color: #333;
+      }
+      .title {
         color: white;
+        margin-top: 30px;
+      }
+      .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button {
+        width: 200px;
+        height: 62px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 17px;
+        border-radius: 1rem;
+        border: none;
+        position: relative;
+        background-image: radial-gradient(
+          circle farthest-corner at 5% 10%,
+          rgba(255, 94, 247, 1) 17.8%,
+          rgba(2, 245, 255, 1) 100.2%
+        );
+        transition: 0.1s;
+        margin: 35px;
+      }
+
+      button::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(
+          circle farthest-corner at 5% 10%,
+          rgba(255, 94, 247, 1) 17.8%,
+          rgba(2, 245, 255, 1) 100.2%
+        );
+        filter: blur(15px);
+        z-index: -1;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      button:active {
+        transform: scale(0.9);
+        background: radial-gradient(
+          circle farthest-corner at 10% 20%,
+          rgba(255, 94, 247, 1) 17.8%,
+          rgba(2, 245, 255, 1) 100.2%
+        );
+        transition: 0.5s;
+      }
+      #element {
+        font-size: 2rem;
+        margin: 4px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        background: radial-gradient(
+          circle farthest-corner at 10% 20%,
+          rgba(255, 94, 247, 1) 17.8%,
+          rgba(2, 245, 255, 1) 100.2%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      footer {
+        margin-top: 20px;
+        font-size: 14px;
+        animation: fadeIn 2s;
+        color: #333;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
         }
-        .button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-button {
-    width: 200px;
-    height: 62px;
-    cursor: pointer;
-    color: #fff;
-    font-size: 17px;
-    border-radius: 1rem;
-    border: none;
-    position: relative;
-    background: #100720;
-    transition: 0.1s;
-    margin: 35px;
-}
-
-button::after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle farthest-corner at 5% 10%, rgba(255, 94, 247, 1) 17.8%, rgba(2, 245, 255, 1) 100.2%);
-    filter: blur(15px);
-    z-index: -1;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-button:active {
-    transform: scale(0.9);
-    background: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 94, 247, 1) 17.8%, rgba(2, 245, 255, 1) 100.2%);
-    transition: 0.5s;
-}
-        footer {
-            margin-top: 20px;
-            font-size: 14px;
-            animation: fadeIn 2s;
-            color: #333;
+        to {
+          opacity: 1;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1 class="title">Free SMS Message</h1>
-       
-        <label for="phoneNumber">Phone Number:</label>
-        <input type="text" id="phoneNumber" placeholder="Enter phone number">
-        
-        <label for="message">Message:</label>
-        <textarea id="message" rows="5" placeholder="Enter your message"></textarea>
-          <div class="button-container">
-        <button onclick="sendSMS()">Send Now!</button>
-          </div>
-        <div id="status" class="status"></div>
+      <span id="element"></span>
+      <label for="phoneNumber" class="title">Phone Number:</label>
+      <input
+        type="text"
+        id="phoneNumber"
+        placeholder="Enter phone number"
+        required
+      />
+
+      <label for="message" class="title">Message:</label>
+      <textarea
+        id="message"
+        rows="5"
+        placeholder="Enter your message"
+        required
+      ></textarea>
+      <div class="button-container">
+        <button id="download" onclick="sendSMS()">Send Now!</button>
+      </div>
+      <div id="status" class="status"></div>
     </div>
     <script src="script.js"></script>
-</body>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed("#element", {
+        strings: ["Free SMS Message"],
+        typeSpeed: 50,
+      });
+    </script>
+  </body>
 </html>
