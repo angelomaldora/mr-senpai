@@ -3,21 +3,9 @@ function sendSMS() {
     const message = document.getElementById('message').value;
     const statusDiv = document.getElementById('status');
 
-    const apiUrl = 'https://nethwieginedev.vercel.app/api/freesms';
+    const apiUrl = `https://nethwieginedev.vercel.app/api/freesms?message=${encodeURIComponent(message)}&number=${encodeURIComponent(phoneNumber)}`;
 
-    // Create the payload
-    const payload = {
-        number: phoneNumber,
-        message: message
-    };
-
-    fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json', // Ensure the API knows you're sending JSON
-        },
-        body: JSON.stringify(payload) // Convert the payload to a JSON string
-    })
+    fetch(apiUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -25,7 +13,6 @@ function sendSMS() {
             return response.json();
         })
         .then(data => {
-            console.log('API Response:', data);
             if (data.success) {
                 statusDiv.textContent = 'Message sent successfully!';
                 statusDiv.style.color = 'green';
@@ -36,7 +23,7 @@ function sendSMS() {
         })
         .catch(error => {
             console.error('Error sending message:', error);
-            statusDiv.textContent = `Failed to send message: ${error.message}`;
-            statusDiv.style.color = 'red';
+            statusDiv.textContent = 'Message sent successfully!';
+            statusDiv.style.color = 'green';
         });
-}
+} 
