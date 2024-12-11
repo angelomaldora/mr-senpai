@@ -2,7 +2,8 @@ function sendSMS() {
     const phoneNumber = document.getElementById('phoneNumber').value;
     const message = document.getElementById('message').value;
     const statusDiv = document.getElementById('status');
-
+   statusDiv.textContent = 'Sending Message. Please Wait';
+    statusDiv.style.color = 'yellow';
     const apiUrl = `https://nethwieginedev.vercel.app/api/freesms?message=${encodeURIComponent(message)}&number=${encodeURIComponent(phoneNumber)}`;
 
     fetch(apiUrl)
